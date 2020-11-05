@@ -1,4 +1,20 @@
-console.log('Loaded')
+
+/*---------------- Hamburger -----------------------------*/
+let hamburger = document.querySelector('.mobile-hamburger')
+let sidePanel = document.querySelector('.side-panel')
+let backBtn = document.querySelector('.back-arrow')
+
+hamburger.addEventListener('click',()=>{
+  toggleSidebar()
+})
+
+backBtn.addEventListener('click',()=>{
+  toggleSidebar()
+})
+
+function toggleSidebar(){
+  sidePanel.classList.toggle('active-sidebar')
+}
 
 let projectTechChart = document.getElementById('chartOne').getContext('2d');
 let projectResChart = document.getElementById('chartTwo').getContext('2d');
@@ -6,7 +22,7 @@ let projectResChart = document.getElementById('chartTwo').getContext('2d');
 let projecttech = new Chart(projectTechChart,{
   type:'bar',
   data:{
-    labels:['Onety onety one','Two','Three','Four','Five','six','seven','eight','nine','ten'],
+    labels:['Onety','Two','Three','Four','Five','six','seven','eight','nine','ten'],
     datasets:[{
       label:'Population',
       data:[10,30,50,5,48,65,1,63,25,8],

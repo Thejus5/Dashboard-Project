@@ -73,9 +73,9 @@
     margin-bottom: 10px;
     height: 100px;
   }
-   .bottom-card-container{
-     margin-bottom: 0px;
-   }
+  .bottom-card-container {
+    margin-bottom: 0px;
+  }
 
   .top-card-container > div,
   .bottom-card-container > div {
@@ -89,7 +89,6 @@
   }
 }
 
-
 /*-----------------------------------*/
 /*------ MOBILE VIEW: LARGE ---------*/
 /*-----------------------------------*/
@@ -102,34 +101,33 @@
   }
 
   h1 {
-  font-size: 110%;
-  font-weight: 500;
-}
+    font-size: 110%;
+    font-weight: 500;
+  }
 
-.line {
-  width: 20px;
-  height: 2px;
-  background: #000;
-  margin: 5px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-/* ------------ Graph Area ---------- */
-.graph-box {
-  margin-top: 20px;
-  justify-content: space-between;
-}
+  .line {
+    width: 20px;
+    height: 2px;
+    background: #000;
+    margin: 5px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  /* ------------ Graph Area ---------- */
+  .graph-box {
+    margin-top: 20px;
+    justify-content: space-between;
+  }
 
-.chart-container {
-  width: 100%;
-}
+  .chart-container {
+    width: 100%;
+  }
 
-   /* -- List Card -- */
+  /* -- List Card -- */
   .tech-list-container {
     width: 90.5%;
   }
 }
-
 
 /*-----------------------------------*/
 /*------ MOBILE VIEW: SMALL ---------*/
@@ -140,40 +138,40 @@
   }
 
   .line {
-  width: 15px;
-  height: 2px;
-  background: #000;
-  margin: 2px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
+    width: 15px;
+    height: 2px;
+    background: #000;
+    margin: 2px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
 
- h1 {
-  font-size: 110%;
-  font-weight: 500;
-}
+  h1 {
+    font-size: 110%;
+    font-weight: 500;
+  }
 
- .top-card-container,
+  .top-card-container,
   .bottom-card-container {
     margin-bottom: 10px;
     height: 70px;
   }
 
   .billable,
-.shadow {
-  padding: 1px 5px;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  color: #fff;
-  font-size: 70%;
-}
+  .shadow {
+    padding: 1px 5px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #fff;
+    font-size: 70%;
+  }
 
-.tech-list-container {
-  margin-top: 5px;
-}
+  .tech-list-container {
+    margin-top: 5px;
+  }
 
- /* -- List Card -- */
+  /* -- List Card -- */
   .tech-list-container {
     width: 89%;
   }

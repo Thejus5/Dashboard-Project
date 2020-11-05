@@ -1,5 +1,5 @@
 # Project Managemet Dashboard
-> Authors: Nikhil, Sidharth, Thejus
+> Authors: Thejus
 
 > Trainer: Nishin T N
 

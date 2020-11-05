@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------
- >> DASHBOARD.JS
- - This js file contains logics common to dashboard menu.
+ >> PROJECTS.JS
+ - This js file contains logics common to projects menu.
 
  >> CONTENTS
     1. Create tab view im main content area.

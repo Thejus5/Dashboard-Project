@@ -383,11 +383,17 @@ header hr {
 /* -------------------------------- */
 /* ----- 10. PRELOADER ------------ */
 /* -------------------------------- */
+.blur {
+  filter: blur(10px);
+  pointer-events: none;
+  user-select: none;
+}
+
 .active-loader{visibility: visible !important;}
 .preloader-box{
   position: fixed;
   top: 30%;
-  left: 50%;
+  left: 45%;
   z-index: 999999;
   text-align: center;
   flex-direction: column;

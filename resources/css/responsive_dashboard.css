@@ -87,6 +87,11 @@
     width: 92.5%;
     margin: 20px;
   }
+
+  .preloader-box {
+    top: 30%;
+    left: 40%;
+  }
 }
 
 /*-----------------------------------*/
@@ -126,6 +131,11 @@
   /* -- List Card -- */
   .tech-list-container {
     width: 90.5%;
+  }
+
+  .preloader-box {
+    top: 30%;
+    left: 35%;
   }
 }
 

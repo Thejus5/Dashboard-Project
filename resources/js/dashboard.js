@@ -131,22 +131,24 @@ function projectVsResourceGraph(projects, resources) {
   })
 
   /**Create data arrays for chart */
-  let projectList = projects.reduce((acc, cur) => [...acc, cur.project_name], [])
-  let resourceCount = Object.values(ProjID_vs_Resource)
-  let projectResChart = document.getElementById('chartTwo').getContext('2d');
-  add0()
+  let projectList = []
+  let resourceCount = []
+
+  projects.forEach((project)=>{
+    let projId = `${project.id}` // number to string conversion
+    projectList.push(project.project_name)
+    if(Object.keys(ProjID_vs_Resource).includes(projId)){
+      resourceCount.push(ProjID_vs_Resource[project.id])
+    }
+    else{
+       resourceCount.push(0)
+    }
+  })
 
   /** Make thy chart */
+  let projectResChart = document.getElementById('chartTwo').getContext('2d');
   let PvRDetails = [projectList, 'Resources', resourceCount, '#49d8a12d', '#49d8a0']
   utils.chartMaker(projectResChart, 'line', PvRDetails)
-
-  /**Chart specific: Add additional zeros for projects with no data */
-  function add0() {
-    if (projectList.length > resourceCount.length) {
-      resourceCount.push(0)
-      add0()
-    }
-  }
 }
 
 

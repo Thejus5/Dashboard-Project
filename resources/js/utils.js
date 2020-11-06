@@ -10,7 +10,8 @@
     2. Field validation function.
     3. Common variables for API calls
     4. Function to create svg progress circles.
-    5. Common array of all approved list of technologies.
+    5. Graph drawing
+    6. Common array of all approved list of technologies.
 ----------------------------------------------------------------*/
 
 /*----------- Show popup on call -------------------------------*/
@@ -53,13 +54,13 @@ let validateFields = function (fields, valid, callback) {
     let start = new Date(document.querySelector('#project-startDate').value)
     let end = new Date(document.querySelector('#project-endDate').value)
     let errorField = document.querySelector('#project-add-date-error')
-    dateComparison(start,end,errorField)
+    dateComparison(start, end, errorField)
   }
   else if (fields[0].className == 'edit-project-validate') {
     let start = new Date(document.querySelector('#project-startDate-edit').value)
     let end = new Date(document.querySelector('#project-endDate-edit').value)
     let errorField = document.querySelector('#project-edit-date-error')
-    dateComparison(start,end,errorField)
+    dateComparison(start, end, errorField)
   }
   callback(isValid);
 }
@@ -109,7 +110,7 @@ function validatePercentage(input) {
 }
 
 // Date comparison and validation
-function dateComparison(start,end,errorField) {
+function dateComparison(start, end, errorField) {
   if (start > end) {
     errorField.style.color = '#ff0033'
     errorField.textContent = 'Your project is ending before it begins. Please check the dates'
@@ -160,6 +161,30 @@ let svgCircleMaker = function (classForSvg, size, radius, percentage, strokeOffs
   callback(progressBar)
 }
 
+/*----------- Graph drawing ---------------------------------------*/
+let chartMaker = function (canvas, type, featureArray) {
+
+  let graph = new Chart(canvas, {
+    type: type,
+    data: {
+      labels: featureArray[0],
+      datasets: [{
+        label: featureArray[1],
+        data: featureArray[2],
+        backgroundColor: featureArray[3],
+        borderColor: featureArray[4]
+      }]
+    },
+    options: {
+      tooltips: {
+        backgroundColor: '#dbf7ec',
+        titleFontColor: '#49d8a0',
+        bodyFontColor: '#49d8a0'
+      }
+    }
+  })
+}
+
 /*----------- Common variables and values -------------------------*/
 // APIs
 let resourceAPI = 'https://api.jsonbin.io/b/5fa0cbf1a03d4a3bab0bbf3f';
@@ -170,5 +195,5 @@ let latestOfflineResourceList
 // List of technologies for popup input field.
 let arrayOfTechnologies = ["HTML", "CSS", "JavaScript", "Flutter", "Swift", "Java", "C++", "C#", "Python"]
 
-let utils = { popup, validateFields, validate, svgCircleMaker, resourceAPI, projectAPI, secretKey, arrayOfTechnologies, latestOfflineResourceList };
+let utils = { popup, validateFields, validate, svgCircleMaker, resourceAPI, projectAPI, secretKey, arrayOfTechnologies, latestOfflineResourceList, chartMaker };
 export default utils;

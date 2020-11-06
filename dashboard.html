@@ -159,7 +159,7 @@
         </div>
 
         <div class="tech-list">
-          <div class="list-element flex-box">
+          <!-- <div class="list-element flex-box">
             <p>HTML</p>
             <p class="project-count">10</p>
           </div>
@@ -172,7 +172,7 @@
           <div class="list-element flex-box">
             <p>Flutter</p>
             <p class="project-count">11</p>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -195,11 +195,18 @@
   </section>
   <!-- main panel ends here -->
 
+  <!-- Preloader -->
+  <section class="preloader-box flex-box">
+    <div class="preloader"></div>
+    <p class="loading-text">Loading... Please Wait</p>
+  </section>
+
   <!-- Charts.js (This has to be placed first as it is used in local js file)-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js"></script>
   <!-- Own local script -->
-  <script src="resources/js/dashboard.js"></script>
+  <script type="module" src="resources/js/utils.js"></script>
+  <script type="module" src="resources/js/dashboard.js"></script>
   <!-- ionicons -->
   <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
   

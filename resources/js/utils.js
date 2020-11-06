@@ -194,7 +194,7 @@ let chartMaker = function (canvas, type, featureArray) {
             beginAtZero: true
           }
         }]
-      }
+      },
     }
   })
 }

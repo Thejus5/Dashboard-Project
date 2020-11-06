@@ -41,7 +41,6 @@ let apiPromise = new Promise((resolve, reject) => {
 apiPromise.then((detailsArray) => {
   // detailsArray[0] will be projects
   // detailsArray[1] will be resources
-  console.log(detailsArray)
 
   let totalProjects = detailsArray[0].length
   let totalEmployees = detailsArray[1].length
@@ -148,9 +147,6 @@ function projectVsResourceGraph(projects, resources) {
       add0()
     }
   }
-
-  console.log(ProjID_vs_Resource)
-  console.log(resourceCount)
 }
 
 

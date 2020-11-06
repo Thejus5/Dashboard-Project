@@ -11,6 +11,7 @@
         iii. Make graph of projects vs technologies.
         iv. Make graph of projects vs resources.
     3. Hamburger.
+    4. Clicks for nav items
 ----------------------------------------------------------------*/
 import utils from './utils.js'
 import apis from './api.js'
@@ -170,4 +171,10 @@ backBtn.addEventListener('click', () => {
 function toggleSidebar() {
   sidePanel.classList.toggle('active-sidebar')
 }
+
+/*---------------- clicks for nav items -------------------*/
+let toProjects = document.querySelector('#projectLink')
+toProjects.addEventListener('click', () => {
+  location.href = '/index.html'
+})
 

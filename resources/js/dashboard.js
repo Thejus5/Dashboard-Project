@@ -162,12 +162,30 @@ let mainPanel = document.querySelector('.main-panel')
 let backBtn = document.querySelector('.back-arrow')
 
 hamburger.addEventListener('click', () => {
+  disableScroll()
   toggleSidebar()
+  
 })
 
 backBtn.addEventListener('click', () => {
   toggleSidebar()
+  enableScroll()
 })
+
+function disableScroll() {
+  // Get the current page scroll position 
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+
+    // if any scroll is attempted, set this to the previous value 
+    window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop);
+    };
+}
+
+function enableScroll() { 
+    window.onscroll = function() {}; 
+} 
 
 function toggleSidebar() {
   sidePanel.classList.toggle('active-sidebar')

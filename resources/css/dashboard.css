@@ -6,6 +6,10 @@
 2. REUSED ITEMS
 3. SIDE PANEL
 4. MAIN PANEL
+    i. Hamburger
+    ii. Header Area
+    iii. Cards Area
+    iv.  Graph Area
 -----------------------------------------------------------------------------------------------------------*/
 
 /* -------------------------------- */
@@ -54,7 +58,7 @@ html {
   position: fixed;
 }
 
-.active-sidebar{
+.active-sidebar {
   margin-left: 0 !important;
 }
 
@@ -85,7 +89,7 @@ html {
   font-size: 450%;
 }
 
-.back-arrow{
+.back-arrow {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -113,6 +117,7 @@ html {
 
 .nav-links li,
 .logout-box li {
+  color: #91a0b4;
   padding: 10px 18px;
   align-items: center;
   transition: all0.2s ease;
@@ -128,7 +133,6 @@ html {
   margin-left: 18px;
   font-weight: 500;
 }
-
 
 /* -------------------------------- */
 /* ----- 4. MAIN PANEL -------------*/
@@ -337,6 +341,11 @@ header hr {
   font-weight: 500;
   padding: 5px 0;
   margin-bottom: 5px;
+}
+
+.tech-list {
+  height: 75%;
+  overflow: scroll;
 }
 
 .list-element {

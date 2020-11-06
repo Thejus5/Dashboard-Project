@@ -158,6 +158,7 @@ function projectVsResourceGraph(projects, resources) {
 /*---------------- Hamburger -----------------------------*/
 let hamburger = document.querySelector('.mobile-hamburger')
 let sidePanel = document.querySelector('.side-panel')
+let mainPanel = document.querySelector('.main-panel')
 let backBtn = document.querySelector('.back-arrow')
 
 hamburger.addEventListener('click', () => {
@@ -170,6 +171,7 @@ backBtn.addEventListener('click', () => {
 
 function toggleSidebar() {
   sidePanel.classList.toggle('active-sidebar')
+  mainPanel.classList.toggle('blur')
 }
 
 /*---------------- clicks for nav items -------------------*/

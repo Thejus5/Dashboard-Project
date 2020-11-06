@@ -137,7 +137,7 @@ function projectVsResourceGraph(projects, resources) {
   add0()
 
   /** Make thy chart */
-  let PvRDetails = [projectList, 'Resources', resourceCount, 'transparent', '#49d8a0']
+  let PvRDetails = [projectList, 'Resources', resourceCount, '#49d8a12d', '#49d8a0']
   utils.chartMaker(projectResChart, 'line', PvRDetails)
 
   /**Chart specific: Add additional zeros for projects with no data */

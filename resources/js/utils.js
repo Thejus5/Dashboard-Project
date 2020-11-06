@@ -180,6 +180,20 @@ let chartMaker = function (canvas, type, featureArray) {
         backgroundColor: '#dbf7ec',
         titleFontColor: '#49d8a0',
         bodyFontColor: '#49d8a0'
+      },
+      scales: {
+        // Remove names from x-axis to save space
+        xAxes: [{
+          ticks: {
+            display: false
+          }
+        }],
+        // Start from zero in y-axis
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
       }
     }
   })

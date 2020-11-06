@@ -1,7 +1,21 @@
+/*---------------------------------------------------------------
+ >> DASHBOARD.JS
+ - This js file is a common collection of all dashboard functions
+   used in this project.
+
+ >> CONTENTS
+    1. API call.
+    2.  Make dynamic data after API call.
+        i. Converts single digit numbers to double by adding zero.
+        ii. Create tech and number of projects list.
+        iii. Make graph of projects vs technologies.
+        iv. Make graph of projects vs resources.
+    3. Hamburger.
+----------------------------------------------------------------*/
 import utils from './utils.js'
 import apis from './api.js'
 
-
+/*---------------- API call ------------------------------*/
 let apiPromise = new Promise((resolve, reject) => {
   let allProjectDetails, allResourceDetails
   apis.getAPI('get', utils.resourceAPI, utils.secretKey, true, (allResources) => {
@@ -22,6 +36,7 @@ let apiPromise = new Promise((resolve, reject) => {
 
 })
 
+/*---------------- Make dynamic data after API call -----*/
 apiPromise.then((detailsArray) => {
   // detailsArray[0] will be projects
   // detailsArray[1] will be resources
@@ -40,7 +55,8 @@ apiPromise.then((detailsArray) => {
   document.querySelector('.employees-shadow-card .card-number').innerHTML = singleToDouble(shadowEmployees.length)
 
   dynamicTech(detailsArray[0])
-  
+  projectVsTechGraph(detailsArray[0])
+  projectVsResourceGraph(detailsArray[0], detailsArray[1])
 
 
 })
@@ -85,6 +101,58 @@ function dynamicTech(projects) {
   })
 }
 
+// Function to extract details and make graph of projects vs technologies
+function projectVsTechGraph(projectList) {
+  let PvTList = {}
+
+  projectList.forEach((project) => {
+    PvTList[project.project_name] = project.tech_used.length
+  })
+
+  let listOfProjects = Object.keys(PvTList)
+  let numOfTech = Object.values(PvTList)
+  let projectTechChart = document.getElementById('chartOne').getContext('2d');
+
+  let PvTDetails = [listOfProjects, 'Technologies', numOfTech, '#49d8a0', 'transparent']
+  utils.chartMaker(projectTechChart, 'bar', PvTDetails)
+
+}
+
+// Function to extract details and make graph of projects vs resources
+function projectVsResourceGraph(projects, resources) {
+
+  /** Count number of resources against project ids */
+  let ProjID_vs_Resource = {}  // Default order will be ascending order of project_id. So no need of sorting
+
+  resources.forEach((res) => {
+    let projId = `${res.project_id}` // number to string conversion
+    if (Object.keys(ProjID_vs_Resource).includes(projId)) ProjID_vs_Resource[res.project_id] += 1
+    else ProjID_vs_Resource[res.project_id] = 1
+  })
+
+  /**Create data arrays for chart */
+  let projectList = projects.reduce((acc, cur) => [...acc, cur.project_name], [])
+  let resourceCount = Object.values(ProjID_vs_Resource)
+  let projectResChart = document.getElementById('chartTwo').getContext('2d');
+  add0()
+
+  /** Make thy chart */
+  let PvRDetails = [projectList, 'Resources', resourceCount, 'transparent', '#49d8a0']
+  utils.chartMaker(projectResChart, 'line', PvRDetails)
+
+  /**Chart specific: Add additional zeros for projects with no data */
+  function add0() {
+    if (projectList.length > resourceCount.length) {
+      resourceCount.push(0)
+      add0()
+    }
+  }
+
+  console.log(ProjID_vs_Resource)
+  console.log(resourceCount)
+}
+
+
 
 /*---------------- Hamburger -----------------------------*/
 let hamburger = document.querySelector('.mobile-hamburger')
@@ -103,14 +171,3 @@ function toggleSidebar() {
   sidePanel.classList.toggle('active-sidebar')
 }
 
-/*---------------- Chart making -----------------------------*/
-let projectTechChart = document.getElementById('chartOne').getContext('2d');
-let projectResChart = document.getElementById('chartTwo').getContext('2d');
-
-let PvTdetails = [
-  ['Onety', 'Two', 'Three', 'Four', 'Five', 'six', 'seven', 'eight', 'nine', 'ten'],
-  'Projects', [10, 30, 50, 5, 48, 65, 1, 63, 25, 8], '#49d8a0', 'transparent'
-]
-
-utils.chartMaker(projectTechChart, 'bar', PvTdetails)
-utils.chartMaker(projectResChart, 'line', PvTdetails)

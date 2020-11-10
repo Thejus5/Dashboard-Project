@@ -10,6 +10,7 @@
     5. 'Add projects' form and its tag view.
     6. PUT projects to server (Adding new project).
     7. Validation on blur for 'Add project' form.
+    8. Navigation Drawer
 ----------------------------------------------------------------*/
 import apis from "./api.js";
 import utils from "./utils.js";
@@ -185,4 +186,10 @@ allAddProjectFields.forEach((field) => {
 
 document.querySelector('.btn-red').addEventListener('click',()=>{
   apis.preLoader()
+})
+
+// /*---------------- Navigation Drawer ------------------------*/
+
+document.querySelector('.drawer-handle').addEventListener('click', ()=>{
+  document.querySelector('.navigation-drawer').classList.toggle('active-drawer')
 })
